@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trindade Advocacia — Inventário Extrajudicial</title>
+<meta name="description" content="Orientação jurídica em inventário extrajudicial e direito sucessório, com acompanhamento pessoal do início ao fim.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1D2733;
+    --paper: #EFEBE3;
+    --canvas: #FAF8F4;
+    --brass: #9C7A3C;
+    --wine: #6E3B3E;
+    --slate: #5B6572;
+    --ink-soft: rgba(29, 39, 51, 0.72);
+    --hairline: rgba(29, 39, 51, 0.14);
+    --hairline-light: rgba(250, 248, 244, 0.22);
+    --max: 40rem;
+    --side: clamp(1.5rem, 6vw, 4rem);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    background: var(--canvas);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    line-height: 1.15;
+    margin: 0 0 0.6em;
+    letter-spacing: -0.01em;
+  }
+
+  p { margin: 0 0 1.1em; max-width: 38rem; }
+
+  a { color: inherit; }
+
+  :focus-visible {
+    outline: 2px solid var(--brass);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+
+  .section {
+    padding: clamp(3.5rem, 9vw, 6.5rem) var(--side);
+  }
+
+  .section-inner { max-width: 64rem; margin: 0 auto; }
+
+  .col {
+    max-width: var(--max);
+  }
+
+  /* ---------- Header ---------- */
+  header {
+    background: var(--ink);
+    color: var(--canvas);
+    padding: 1.4rem var(--side);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    text-decoration: none;
+    color: var(--canvas);
+  }
+
+  .seal {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+  }
+
+  .brand-name {
+    font-family: 'Fraunces', serif;
+    font-size: 1.05rem;
+    letter-spacing: 0.01em;
+  }
+
+  header nav a {
+    text-decoration: none;
+    color: var(--hairline-light);
+    font-size: 0.92rem;
+    margin-left: 1.6rem;
+    transition: color 0.15s ease;
+  }
+  header nav a:hover { color: var(--canvas); }
+  header nav { display: none; }
+  @media (min-width: 720px) { header nav { display: block; } }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    background: var(--ink);
+    color: var(--canvas);
+    padding: clamp(3.5rem, 11vw, 7rem) var(--side) clamp(4rem, 10vw, 6rem);
+  }
+
+  .hero-inner { max-width: 64rem; margin: 0 auto; }
+
+  .eyebrow {
+    font-size: 0.9rem;
+    color: var(--brass);
+    margin-bottom: 1.1rem;
+    font-family: 'Public Sans', sans-serif;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.1rem, 5.2vw, 3.4rem);
+    max-width: 18ch;
+    color: var(--canvas);
+  }
+
+  .hero p.lede {
+    color: var(--hairline-light);
+    font-size: 1.15rem;
+    max-width: 34rem;
+  }
+
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.5rem;
+    border-radius: 3px;
+    font-size: 0.98rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid transparent;
+  }
+
+  .btn-primary {
+    background: var(--brass);
+    color: var(--ink);
+  }
+  .btn-primary:hover { background: #ad8a4a; }
+
+  .btn-ghost {
+    color: var(--canvas);
+    border-color: var(--hairline-light);
+  }
+  .btn-ghost:hover { border-color: var(--canvas); }
+
+  /* ---------- Sober disclaimer strip ---------- */
+  .notice {
+    background: var(--paper);
+    border-bottom: 1px solid var(--hairline);
+    padding: 0.85rem var(--side);
+    font-size: 0.86rem;
+    color: var(--ink-soft);
+  }
+  .notice .section-inner { max-width: 64rem; margin: 0 auto; }
+
+  /* ---------- Content sections ---------- */
+  .section.paper { background: var(--paper); }
+  .section.canvas { background: var(--canvas); }
+
+  .kicker {
+    font-size: 0.9rem;
+    color: var(--brass);
+    margin-bottom: 0.6rem;
+  }
+
+  .rule {
+    border: none;
+    border-top: 1px solid var(--hairline);
+    margin: 0 0 clamp(2.5rem, 6vw, 4rem);
+  }
+
+  /* ---------- Steps ---------- */
+  .steps {
+    display: grid;
+    gap: 2.2rem;
+    margin-top: 2.4rem;
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: 2.6rem 1fr;
+    gap: 1rem;
+    max-width: 40rem;
+    padding-bottom: 2.2rem;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .step:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .step-num {
+    font-family: 'Fraunces', serif;
+    font-size: 1.4rem;
+    color: var(--brass);
+  }
+
+  .step h3 { font-size: 1.15rem; margin-bottom: 0.35em; }
+  .step p { margin-bottom: 0; color: var(--ink-soft); }
+
+  /* ---------- Areas list ---------- */
+  .areas {
+    display: grid;
+    gap: 0;
+    margin-top: 2.2rem;
+    max-width: 40rem;
+  }
+  .areas div {
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--hairline);
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: baseline;
+  }
+  .areas div:first-child { border-top: 1px solid var(--hairline); }
+  .areas h3 { font-size: 1.05rem; margin: 0; font-weight: 500; }
+  .areas span { color: var(--slate); font-size: 0.9rem; white-space: nowrap; }
+
+  /* ---------- FAQ ---------- */
+  .faq-item {
+    max-width: 40rem;
+    padding: 1.6rem 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .faq-item:first-of-type { border-top: 1px solid var(--hairline); }
+  .faq-item h3 { font-size: 1.05rem; margin-bottom: 0.5em; }
+  .faq-item p { color: var(--ink-soft); margin-bottom: 0; }
+
+  /* ---------- Closing CTA ---------- */
+  .closing {
+    background: var(--ink);
+    color: var(--canvas);
+    text-align: left;
+  }
+  .closing h2 { color: var(--canvas); max-width: 20ch; }
+  .closing p { color: var(--hairline-light); }
+
+  /* ---------- Footer ---------- */
+  footer {
+    background: var(--ink);
+    color: var(--hairline-light);
+    padding: 2.4rem var(--side) 2.2rem;
+    border-top: 1px solid rgba(250, 248, 244, 0.12);
+    font-size: 0.87rem;
+  }
+  footer .section-inner {
+    max-width: 64rem;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+  footer a { text-decoration: none; color: var(--hairline-light); }
+  footer a:hover { color: var(--canvas); }
+  .footer-links { display: flex; flex-direction: column; gap: 0.5rem; }
+  .footer-social { display: flex; gap: 1rem; margin-top: 0.9rem; }
+  .footer-social a { margin-right: 1rem; }
+  .footer-social a:last-child { margin-right: 0; }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="brand" href="#top">
+    <svg class="seal" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="30" cy="30" r="28" stroke="#9C7A3C" stroke-width="1.4"/>
+      <circle cx="30" cy="30" r="23" stroke="#9C7A3C" stroke-width="1"/>
+      <text x="30" y="26" text-anchor="middle" font-family="Fraunces, serif" font-size="9" fill="#F4F1EA">TA</text>
+      <text x="30" y="40" text-anchor="middle" font-family="'Public Sans', sans-serif" font-size="4.6" letter-spacing="1.5" fill="#9C7A3C">ADVOCACIA</text>
+    </svg>
+    <span class="brand-name">Trindade Advocacia</span>
+  </a>
+  <nav>
+    <a href="#como-funciona">Como funciona</a>
+    <a href="#atuacao">Áreas de atuação</a>
+    <a href="#duvidas">Dúvidas</a>
+    <a href="#contato">Contato</a>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div class="eyebrow">Direito sucessório · Inventário extrajudicial</div>
+    <h1>Inventário extrajudicial, conduzido com clareza do início ao fim.</h1>
+    <p class="lede">Orientação jurídica pessoal para famílias que precisam organizar um inventário — com uso do e-Notariado quando o caso permitir, e acompanhamento do advogado responsável em cada etapa.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://wa.me/5511980025316" target="_blank" rel="noopener">Falar no WhatsApp</a>
+      <a class="btn btn-ghost" href="#como-funciona">Como funciona</a>
+    </div>
+  </div>
+</section>
+
+<div class="notice">
+  <div class="section-inner">
+    Este site tem caráter informativo e não substitui consulta jurídica. A viabilidade do inventário extrajudicial depende da análise do caso concreto.
+  </div>
+</div>
+
+<section class="section canvas" id="o-que-e">
+  <div class="section-inner">
+    <div class="col">
+      <div class="kicker">O que é</div>
+      <h2>Inventário extrajudicial</h2>
+      <p>É o procedimento realizado diretamente em cartório de notas, sem necessidade de processo judicial, quando todos os herdeiros são maiores, capazes e estão de acordo com a partilha, e não há testamento — ressalvadas exceções específicas avaliadas caso a caso. Costuma ser mais rápido do que a via judicial.</p>
+      <p>Desde 2020, o e-Notariado permite que boa parte das etapas — incluindo a assinatura da escritura, em certos casos — seja conduzida por videoconferência com o tabelião, o que facilita quando há herdeiros em cidades ou estados diferentes.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section paper" id="como-funciona">
+  <div class="section-inner">
+    <div class="col">
+      <div class="kicker">Como funciona</div>
+      <h2>O caminho até a escritura</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <h3>Conversa inicial</h3>
+          <p>Levantamento das informações básicas do caso — herdeiros, bens e situação do falecimento — para uma primeira avaliação.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <h3>Reunião de documentos</h3>
+          <p>Organização dos documentos pessoais, certidões e comprovantes dos bens do espólio, por canal seguro.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <h3>Primeiras declarações</h3>
+          <p>Elaboração da minuta com base na documentação, incluindo o cálculo do ITCMD e demais tributos aplicáveis.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div>
+          <h3>Cartório e e-Notariado</h3>
+          <p>Protocolo junto ao tabelionato escolhido, com possibilidade de etapas por videoconferência quando o caso permitir.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div>
+          <h3>Escritura pública</h3>
+          <p>Lavratura da escritura de inventário e partilha, documento final que formaliza a transmissão dos bens.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section canvas" id="atuacao">
+  <div class="section-inner">
+    <div class="col">
+      <div class="kicker">Áreas de atuação</div>
+      <h2>Orientação jurídica</h2>
+      <p>Atuação concentrada em direito sucessório, com atendimento também em outras questões cíveis relacionadas.</p>
+    </div>
+    <div class="areas">
+      <div><h3>Inventário extrajudicial</h3><span>Cartório · e-Notariado</span></div>
+      <div><h3>Inventário judicial</h3><span>Quando o caso exige</span></div>
+      <div><h3>Planejamento sucessório</h3><span>Testamentos, doações</span></div>
+      <div><h3>Orientação em partilha de bens</h3><span>Consultoria</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section paper" id="duvidas">
+  <div class="section-inner">
+    <div class="col">
+      <div class="kicker">Dúvidas frequentes</div>
+      <h2>Perguntas comuns</h2>
+    </div>
+    <div style="max-width: 40rem;">
+      <div class="faq-item">
+        <h3>Todo inventário pode ser extrajudicial?</h3>
+        <p>Não. É preciso que todos os herdeiros sejam maiores e capazes, estejam de acordo com a partilha, e que não haja testamento — com exceções específicas que dependem de análise do caso.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Preciso comparecer pessoalmente ao cartório?</h3>
+        <p>Nem sempre. O e-Notariado permite, em muitos casos, que parte do procedimento — incluindo a assinatura — ocorra por videoconferência com o tabelião.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Quanto tempo leva?</h3>
+        <p>Varia conforme a documentação, o recolhimento do ITCMD e a agenda do cartório. Um prazo estimado é apresentado após a análise do caso.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Como sei se meu caso se encaixa?</h3>
+        <p>O primeiro passo é uma conversa inicial pelo WhatsApp, para levantar as informações básicas do caso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section closing" id="contato">
+  <div class="section-inner">
+    <div class="col">
+      <div class="kicker" style="color:#c7a86a;">Contato</div>
+      <h2>Comece pela conversa inicial</h2>
+      <p>Atendimento inicial pelo WhatsApp, com análise do advogado responsável antes de qualquer próximo passo.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://wa.me/5511980025316" target="_blank" rel="noopener">Falar no WhatsApp</a>
+        <a class="btn btn-ghost" href="mailto:sergio@trindadeadvocacia.com.br">sergio@trindadeadvocacia.com.br</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="section-inner">
+    <div>
+      <div class="brand-name" style="font-family:'Fraunces',serif; color:#FAF8F4; margin-bottom:0.4rem;">Trindade Advocacia</div>
+      <div>OAB/SP nº [preencher]</div>
+      <div style="margin-top:0.6rem; max-width:22rem; color: var(--hairline-light);">Este site tem caráter meramente informativo, nos termos do Provimento OAB nº 205/2021, e não constitui consulta jurídica.</div>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="Facebook">Facebook</a>
+        <a href="#" aria-label="TikTok">TikTok</a>
+        <a href="#" aria-label="Threads">Threads</a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="https://sergiotrin.github.io/paginas-legais-trindade/">Política de Privacidade</a>
+      <a href="https://sergiotrin.github.io/paginas-legais-trindade/">Termos de Uso</a>
+      <a href="https://sergiotrin.github.io/paginas-legais-trindade/">Exclusão de Dados</a>
+      <a href="https://wa.me/5511980025316">WhatsApp</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
